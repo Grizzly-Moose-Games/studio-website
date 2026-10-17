@@ -248,14 +248,9 @@
       const data = new FormData(form);
       const note = form.querySelector(".form-note");
 
-      if (form.dataset.form === "notify") {
-        openMail("Notify me when BioRogue's Steam page launches", `Please add ${data.get("email")} to the BioRogue launch list.`);
-        if (note) note.textContent = `Your email app should open with this request. If it doesn't, write to ${STUDIO_EMAIL}.`;
-      } else {
-        const name = `${data.get("first") || ""} ${data.get("last") || ""}`.trim();
-        openMail(`Website enquiry from ${name || data.get("email")}`, `${data.get("message")}\n\n— ${name}\n${data.get("email")}`);
-        if (note) note.textContent = `Your email app should open with this message. If it doesn't, write to ${STUDIO_EMAIL}.`;
-      }
+      const name = `${data.get("first") || ""} ${data.get("last") || ""}`.trim();
+      openMail(`Website enquiry from ${name || data.get("email")}`, `${data.get("message")}\n\n— ${name}\n${data.get("email")}`);
+      if (note) note.textContent = `Your email app should open with this message. If it doesn't, write to ${STUDIO_EMAIL}.`;
     });
   });
 
