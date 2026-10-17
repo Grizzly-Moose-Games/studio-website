@@ -129,21 +129,6 @@ p:last-child { margin-bottom: 0; }
 .btn-paper:hover { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .btn, .btn:hover { transition: none; transform: none; } }
 
-/* Fields are lines to write on */
-.field {
-  width: 100%; min-width: 0;
-  font: inherit; font-size: 1.05rem; color: var(--ink);
-  background: transparent; border: 0; border-bottom: 2.5px solid var(--ink); border-radius: 0;
-  padding: 10px 2px 8px;
-}
-.field::placeholder { color: var(--ink-soft); opacity: 0.55; font-style: italic; }
-.field:focus { outline: none; border-bottom-color: var(--rust); background: color-mix(in srgb, var(--antler) 22%, transparent); }
-textarea.field {
-  min-height: 168px; resize: vertical; line-height: 28px; padding-top: 2px;
-  background: repeating-linear-gradient(transparent 0 27px, color-mix(in srgb, var(--ink) 22%, transparent) 27px 28px);
-}
-.form-note { font-style: italic; color: var(--rust); margin: 12px 0 0; min-height: 1.5em; }
-
 /* ---------- Sections ---------- */
 .section { padding-block: clamp(70px, 10vw, 120px); }
 .section-head { margin-bottom: 48px; max-width: 700px; }
@@ -237,16 +222,10 @@ textarea.field {
 .socials svg { width: 18px; height: 18px; }
 
 /* ---------- Contact ---------- */
-.contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(36px, 6vw, 84px); }
-.contact > * { min-width: 0; }
-@media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
-.contact-email { display: inline-block; font-family: var(--display); font-size: clamp(1.4rem, 3.2vw, 2rem); margin: 24px 0; overflow-wrap: anywhere; }
+.contact p { max-width: 60ch; }
+.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin: 28px 0; }
+.contact-email { font-size: 1.1rem; overflow-wrap: anywhere; }
 .legal { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 0.95rem; }
-
-.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 20px; }
-.contact-form .full { grid-column: 1 / -1; }
-.contact-form label { display: block; font-family: var(--display); font-size: 1.15rem; }
-@media (max-width: 520px) { .contact-form { grid-template-columns: 1fr; } }
 
 /* ---------- Footer: treeline on an ink ground ---------- */
 .site-footer { position: relative; isolation: isolate; padding-top: 120px; }

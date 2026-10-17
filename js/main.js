@@ -1,6 +1,4 @@
 (() => {
-  const STUDIO_EMAIL = "GrizzlyMooseGames@gmail.com";
-
   // ---------- Inked illustrations ----------
   // Every shape is knocked out in paper, filled with a spot colour nudged off-register,
   // then outlined in ink along a slightly wandering line, like a screen print of a pen drawing.
@@ -235,24 +233,6 @@
       timer = setTimeout(render, 150);
     });
   }
-
-  // ---------- Forms: a static site hands off to the visitor's mail client ----------
-  const openMail = (subject, body) => {
-    window.location.href = `mailto:${STUDIO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  document.querySelectorAll("form[data-form]").forEach((form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      const note = form.querySelector(".form-note");
-
-      const name = `${data.get("first") || ""} ${data.get("last") || ""}`.trim();
-      openMail(`Website enquiry from ${name || data.get("email")}`, `${data.get("message")}\n\n— ${name}\n${data.get("email")}`);
-      if (note) note.textContent = `Your email app should open with this message. If it doesn't, write to ${STUDIO_EMAIL}.`;
-    });
-  });
 
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
