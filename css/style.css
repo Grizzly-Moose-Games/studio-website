@@ -25,6 +25,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Bouncing past either end of the page shows the root: paper above the header, ink below the footer */
+html { background: var(--paper); }
+html.past-middle { background: var(--ink); }
+
 body {
   margin: 0;
   background: var(--paper);
