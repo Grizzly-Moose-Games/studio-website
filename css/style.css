@@ -5,6 +5,7 @@
 :root {
   color-scheme: light;
   --paper: #f0eee6;
+  --paper-seen: #edeae2; /* paper as it reads under the grain; matches browser chrome to the page */
   --paper-2: #e5e2d4;
   --ink: #1c1a16;
   --ink-soft: #46423a;
@@ -25,11 +26,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Bouncing past either end of the page shows the root: paper above the header, ink below the footer */
-html { background: var(--paper); }
-html.past-middle { background: var(--ink); }
+html { background: var(--paper-seen); }
 
 body {
+  position: relative;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -39,9 +39,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Paper grain */
+/* Paper grain. Not position: fixed, or iOS Safari tints its bars from this transparent layer */
 body::after {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 100;
   opacity: 0.18; mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
 }
@@ -231,19 +231,18 @@ p:last-child { margin-bottom: 0; }
 .contact-email { font-size: 1.1rem; overflow-wrap: anywhere; }
 .legal { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 0.95rem; }
 
-/* ---------- Footer: treeline on an ink ground ---------- */
+/* ---------- Footer: treeline on a paper ground ---------- */
 .site-footer { position: relative; isolation: isolate; padding-top: 120px; }
 .site-footer .strip { top: 0; bottom: auto; }
-.footer-base { background: var(--ink); color: var(--paper); padding-block: 18px 36px; margin-top: -2px; }
+.footer-base { color: var(--ink); padding-block: 18px calc(36px + env(safe-area-inset-bottom)); }
 .footer-base .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
-.footer-base .brand, .footer-base .brand:hover { color: var(--paper); }
 .footer-base small { font-size: 0.9rem; font-style: italic; opacity: 0.75; }
 .band a.btn-paper, .band a.btn-paper:hover { color: var(--ink); }
 
 /* ---------- Studio lockup ---------- */
 .brand .lockup { width: auto; height: 62px; }
 .site-header.is-home .brand { visibility: hidden; }
-.footer-base .brand .lockup { height: 54px; filter: invert(1); }
+.footer-base .brand .lockup { height: 54px; }
 .hero-grid { display: grid; gap: clamp(28px, 4vw, 44px); justify-items: center; }
 .hero-grid > * { min-width: 0; }
 .hero .hero-title { margin: 0; max-width: none; }

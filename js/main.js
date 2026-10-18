@@ -234,12 +234,6 @@
     });
   }
 
-  const root = document.documentElement;
-  const paintOverscroll = () => root.classList.toggle("past-middle", window.scrollY > (root.scrollHeight - window.innerHeight) / 2);
-  window.addEventListener("scroll", paintOverscroll, { passive: true });
-  window.addEventListener("resize", paintOverscroll);
-  paintOverscroll();
-
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 })();
