@@ -98,8 +98,7 @@ p:last-child { margin-bottom: 0; }
 .hero-copy { margin-top: 28px; font-size: 1.15rem; max-width: 56ch; color: var(--ink); }
 
 .kicker { font-style: italic; color: var(--rust); margin-bottom: 14px; }
-.spotlight { display: block; max-width: 560px; }
-.hero-text .spotlight + .hero-copy { margin-top: 24px; }
+.spotlight { display: block; }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
 
 /* ---------- Sub-page heroes ---------- */
@@ -241,12 +240,14 @@ p:last-child { margin-bottom: 0; }
 .brand .lockup { width: auto; height: 62px; }
 .site-header.is-home .brand { visibility: hidden; }
 .footer-base .brand .lockup { height: 54px; filter: invert(1); }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.hero-grid { display: grid; gap: clamp(28px, 4vw, 44px); justify-items: center; }
 .hero-grid > * { min-width: 0; }
-.hero-title { margin: 0; }
-.hero-title img { width: 100%; max-width: 560px; }
+.hero .hero-title { margin: 0; max-width: none; }
+.hero-title img { width: 100%; max-width: 280px; }
+.feature { width: 100%; display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; margin-bottom: clamp(8px, 3vw, 40px); }
+.feature > * { min-width: 0; }
 .hero-text .hero-copy { margin-top: 0; }
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-title img { max-width: 420px; }
+  .feature { grid-template-columns: 1fr; }
+  .hero-title img { max-width: 220px; }
 }
