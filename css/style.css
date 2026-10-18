@@ -103,7 +103,7 @@ p:last-child { margin-bottom: 0; }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
 
 /* ---------- Sub-page heroes ---------- */
-.page-hero { position: relative; isolation: isolate; padding-block: 40px 130px; }
+.page-hero { position: relative; isolation: isolate; padding-block: 40px 190px; }
 .page-hero .lede { margin-top: 24px; font-size: 1.15rem; color: var(--ink); }
 .strip { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 120px; filter: url(#wobble-soft); }
 
@@ -196,8 +196,9 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- About ---------- */
 .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
-.values > p { min-width: 0; position: relative; padding-top: 22px; }
-.values > p::before { content: ""; position: absolute; top: 0; left: 0; width: 46px; height: 12px; background: var(--antler); border-radius: 3px; transform: rotate(-2deg); }
+.values > div { min-width: 0; position: relative; padding-top: 22px; }
+.values h3 { margin-bottom: 10px; }
+.values > div::before { content: ""; position: absolute; top: 0; left: 0; width: 46px; height: 12px; background: var(--antler); border-radius: 3px; transform: rotate(-2deg); }
 @media (max-width: 860px) { .values { grid-template-columns: 1fr; } }
 
 .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 48px 32px; }
